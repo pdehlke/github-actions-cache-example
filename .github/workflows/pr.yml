@@ -5,11 +5,9 @@ name: Java CI with Maven in Windows and MacOS
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, closed]
 
 jobs:
   build:
-    if: github.event.action != 'closed' || github.event.pull_request.merged == true
     strategy:
       matrix:
         os: ['macos-latest', 'windows-latest']
