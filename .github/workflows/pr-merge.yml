@@ -6,7 +6,7 @@
 # This workflow will update the cache for Windows and MacOS on the master branch
 # when the PR is merged (actually it will update on the base branch of a merged PR).
 # The build consists in a Maven run but skipping tests.
-# The Maven build is run only if we did not have a cache hit
+# The Maven build is run only if we did not have a cache hit.
 
 name: Updates Cache on Windows and MacOS
 
