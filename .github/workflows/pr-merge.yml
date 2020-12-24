@@ -5,7 +5,8 @@
 # the builds on PR will not update the cache on the master branch.
 # This workflow will update the cache for Windows and MacOS on the master branch
 # when the PR is merged (actually it will update on the base branch of a merged PR).
-# The build consists in a Maven run but skipping tests
+# The build consists in a Maven run but skipping tests.
+# The Maven build is run only if we did not have a cache hit
 
 name: Updates Cache on Windows and MacOS
 
@@ -39,4 +40,5 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2-
     - name: Build with Maven
+      if: steps.cache.outputs.cache-hit != 'true'
       run: mvn -f io.github.lorenzobettini.example/pom.xml verify -DskipTests
