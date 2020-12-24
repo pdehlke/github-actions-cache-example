@@ -11,6 +11,12 @@ name: Updates Cache on Windows and MacOS
 
 on:
   push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      # Push events on the main branch
+      - master
+      # Push events to branches matching
+      - experiments*
 
 jobs:
   build:
