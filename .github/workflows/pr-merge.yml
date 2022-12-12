@@ -32,7 +32,7 @@ jobs:
         distribution: corretto
         java-version: 8
     - name: Cache Maven packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       id: m2cache # note the cache id, see below for cache-hit
       with:
         path: ~/.m2
